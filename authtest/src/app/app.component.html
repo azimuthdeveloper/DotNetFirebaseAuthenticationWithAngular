@@ -1,0 +1,20 @@
+<firebase-ui></firebase-ui>
+
+@if (firebase.authState | async) {
+  <pre>
+  {{ user | async | json }}
+</pre>
+
+  <b>Logged in actions</b>
+
+  <h1>Server response</h1>
+
+  <button (click)="useProtectedResource()">Make authenticated request</button>
+
+  <pre>
+    {{protectedResponseData | json}}
+  </pre>
+
+  <button (click)="firebase.signOut()">Sign out</button>
+
+}
